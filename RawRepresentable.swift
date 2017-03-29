@@ -11,16 +11,32 @@ import Foundation
 typealias EnumParsable = RawRepresentable & Hashable
 
 extension RawRepresentable where Self: Hashable {
-    static func getCaseArray() -> [Self] {
+    private static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
+        var i = 0
+        
+        return AnyIterator {
+            let next = withUnsafeBytes(of: &i) { $0.load(as: T.self) }
+            
+            if next.hashValue != i {
+                return nil
+            }
+            
+            i += 1
+            
+            return next
+        }
+    }
+    
+    static func getCases() -> [Self] {
         return iterateEnum(Self.self).map{$0}
     }
     
     static var count: Int {
-        return Self.getCaseArray().count
+        return getCases().count
     }
     
-    static func getRawValueArray() -> [RawValue] {
-        let arr = self.getCaseArray()
+    static func getRawValues() -> [RawValue] {
+        let arr = getCases()
         let rawValues = arr.flatMap {
             $0.rawValue
         }
