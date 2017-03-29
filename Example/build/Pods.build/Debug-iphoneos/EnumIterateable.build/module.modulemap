@@ -1,0 +1,10 @@
+framework module EnumIterateable {
+  umbrella header "EnumIterateable-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module EnumIterateable.Swift {
+    header "EnumIterateable-Swift.h"
+}

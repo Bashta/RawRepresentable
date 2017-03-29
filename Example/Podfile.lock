@@ -1,0 +1,16 @@
+PODS:
+  - EnumIterateable (0.1.0)
+
+DEPENDENCIES:
+  - EnumIterateable (from `../`)
+
+EXTERNAL SOURCES:
+  EnumIterateable:
+    :path: ../
+
+SPEC CHECKSUMS:
+  EnumIterateable: 887ae571c70170996d1091532fc1f3fd9991b402
+
+PODFILE CHECKSUM: 6a21824cef73d88fa14884b0c89e5e12490cad39
+
+COCOAPODS: 1.2.0

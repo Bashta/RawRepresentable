@@ -1,0 +1,6 @@
+framework module Pods_EnumIterateable_Tests {
+  umbrella header "Pods-EnumIterateable_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
